@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+ 
+    
+     
+    <!-- Reference Globalize if you need to localize app or your app uses custom date, number or currency formatting --> 
+    <script type="text/javascript" src="node_modules/cldrjs/dist/cldr.js"></script>
+    <script type="text/javascript" src="node_modules/cldrjs/dist/cldr/event.js"></script>
+    <script type="text/javascript" src="node_modules/cldrjs/dist/cldr/supplemental.js"></script>
+    <script type="text/javascript" src="node_modules/globalize/dist/globalize.js"></script>
+    <script type="text/javascript" src="node_modules/globalize/dist/globalize/message.js"></script>
+    <script type="text/javascript" src="node_modules/globalize/dist/globalize/number.js"></script>
+    <script type="text/javascript" src="node_modules/globalize/dist/globalize/currency.js"></script>
+    <script type="text/javascript" src="node_modules/globalize/dist/globalize/date.js"></script>
+     
+    <!-- Reference the JSZip script if you need client-side exporting -->
+    <script type="text/javascript" src="node_modules/jszip/dist/jszip.js"></script>
+     
+    <!-- DevExtreme themes -->
+    <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/devextreme/dist/css/dx.light.css" />
+     
+    <!-- A DevExtreme library -->
+    <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.all.js"></script>
+    <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.mobile.js"></script> -->
+    <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.viz.js"></script> -->
+    <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.web.js"></script> -->
+    <!-- <script type="text/javascript" src="node_modules/devextreme/dist/js/dx.viz-web.js"></script> -->
+    
+    <script>
+        var fruits = [
+            { fruit: 'Apples', count: 10 },
+            { fruit: 'Oranges', count: 16 },
+            { fruit: 'Lemons', count: 15 },
+            { fruit: 'Pears', count: 20 },
+            { fruit: 'Pineapples', count: 3 }
+        ];
+ 
+        $(function () {
+            $("#chartContainer").dxChart({
+                dataSource: fruits,
+                series: {
+                    // See details in the "Bind Series to Data" topic
+                    argumentField: 'fruit',
+                    valueField: 'count'
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    
+    <div id="chartContainer"></div>
+
+
+
+</body>
+</html>
