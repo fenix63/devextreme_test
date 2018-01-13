@@ -34,20 +34,48 @@
     
     <script>
         var fruits = [
-            { fruit: 'Apples', count: 10 },
-            { fruit: 'Oranges', count: 16 },
-            { fruit: 'Lemons', count: 15 },
-            { fruit: 'Pears', count: 20 },
-            { fruit: 'Pineapples', count: 3 }
+            { fruit: 'Яблоки', count: 10 },
+            { fruit: 'Опельсины', count: 16 },
+            { fruit: 'Лемоны', count: 15 },
+            { fruit: 'Груши', count: 20 },
+            { fruit: 'Ананасы', count: 3 }
         ];
  
         $(function () {
             $("#chartContainer").dxChart({
-                dataSource: fruits,
+                dataSource: new DevExpress.data.DataSource({
+                    store: {
+                        type: 'array',
+                        data: fruits,
+                        onLoaded: function () {
+                            // Event handling commands go here
+                        }
+                    },
+                    paginate: false
+                }),
                 series: {
-                    // See details in the "Bind Series to Data" topic
                     argumentField: 'fruit',
                     valueField: 'count'
+                },
+                legend: {
+                    verticalAlignment: 'bottom',
+                    horizontalAlignment: 'center'
+                },
+                panes: {
+                    backgroundColor: '#fce',
+                    border: {
+                        visible: true,
+                        width: 2
+                    }
+                },
+                title: {
+                    text: "Цены на фрукты",
+                    subtitle: {
+                        text: "Детальное описание"
+                    }
+                },
+                loadingIndicator: {
+                    show: true
                 }
             });
         });
